@@ -1,24 +1,29 @@
-# Base class
 class Animal:
-    def __init__(self, name):
-        self.name = name
-
     def speak(self):
-        raise NotImplementedError("Subclasses must implement the speak method")
+        pass
 
-# Derived class 1
 class Dog(Animal):
     def speak(self):
-        return f"{self.name} says Woof!"
+        return "Woof!"
 
-# Derived class 2
 class Cat(Animal):
     def speak(self):
-        return f"{self.name} says Meow!"
+        return "Meow!"
 
-# Example usage
-dog_instance = Dog("Buddy")
-cat_instance = Cat("Whiskers")
+class Cow(Animal):
+    def speak(self):
+        return "Moo!"
 
-print(dog_instance.speak())  # Output: Buddy says Woof!
-print(cat_instance.speak())  # Output: Whiskers says Meow!
+# Function demonstrating polymorphism
+def animal_sound(animal):
+    return animal.speak()
+
+# Creating instances of different animals
+dog = Dog()
+cat = Cat()
+cow = Cow()
+
+# Using the function with different types of animals
+print(animal_sound(dog))  # Output: Woof!
+print(animal_sound(cat))  # Output: Meow!
+print(animal_sound(cow))  # Output: Moo!
